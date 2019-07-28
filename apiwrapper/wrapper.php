@@ -13,6 +13,11 @@ class Wrapper {
         array_push(self::$Routes, $route);
     }
 
+    public static function EnableCors() {
+        header('Access-Control-Allow-Origin: *');
+        header('Content-type: application/json');
+    }
+
     public static function Listen() {
         $requestMethod = $_SERVER["REQUEST_METHOD"];
         $requestUrl = $_SERVER["REQUEST_URI"];
@@ -30,8 +35,9 @@ class Wrapper {
             }
         }
 
-        if(!is_null($activeRoute))
+        if(!is_null($activeRoute)) {
             Handler::HandleRequest($activeRoute);
+        }
     }
 
     private static function FindRoutesByType($type) {

@@ -9,7 +9,11 @@ class UrlHelper {
     }
 
     public static function GetUriTemplateArray($template) {
-        return preg_split("#/#", $template); 
+        $splitted = preg_split("#/#", $template);
+
+        array_shift($splitted);
+
+        return $splitted;
     }
 
     private static function IsUriArraysMatches($request, $template) {
@@ -21,8 +25,16 @@ class UrlHelper {
 
         for($i = 0; $i < $templateCount; $i++) {
             if(array_key_exists($i, $request)) {
-                if($template[$i] == $request[$i] || self::IsParameter($template[$i]))
+
+                if($template[$i] == $request[$i]) {
                     continue;
+                }
+                else if($request[$i] == "") {
+
+                }
+                else if(self::IsParameter($template[$i])) {
+                    continue;
+                }
             }
 
             if(!self::IsOptional($template[$i]))
@@ -42,9 +54,11 @@ class UrlHelper {
     }
 
     private static function IsOptional($param) {
-        if($param[1] == '@')
-            return true;
-
+        if(strlen($param) > 0) {
+            if($param[1] == '@') {
+                return true;
+            }
+        }
         return false;
     }
 }
