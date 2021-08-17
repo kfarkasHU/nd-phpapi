@@ -1,10 +1,10 @@
 <?php
 namespace PhpAPI2 {
     // TODO (sohamar): Rename this to ```Url```.
-    class UrlHelper {
+    class Url {
         public static function GetRequestedPath($request, $paths) {
             foreach($paths as $path) {
-                if(self::IsPathMatch($request, $path)) {
+                if(self::IsPathMatch($request, $path->RelativeUri)) {
                     return $path;
                 }
             }
@@ -12,6 +12,8 @@ namespace PhpAPI2 {
         }
 
         private static function IsPathMatch($request, $path) {
+            echo "$request<br/>";
+            echo "$path<br/>";
             return true;
         }
     }

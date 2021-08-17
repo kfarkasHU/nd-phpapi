@@ -21,7 +21,7 @@ namespace PhpAPI2 {
             $paths = PathCache::GetAllFilteredByRequestType($requestMethod);
             if(is_array($paths) && count($paths) === 0) throw new \Error("The request method was not found!");
 
-            $requestedPathRef = UrlHelper::GetRequestedPath($requestUrl, $paths);
+            $requestedPathRef = Url::GetRequestedPath($requestUrl, $paths);
             if(is_null($requestedPathRef)) throw new \Error("The requested path was not found!");
 
             $requestUriParams = Params::GetUriParams($_SERVER, $requestedPathRef->RelativeUri);

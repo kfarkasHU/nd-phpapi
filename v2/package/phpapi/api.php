@@ -1,6 +1,7 @@
 <?php
 
 namespace PhpAPI2 {
+    require_once("utility/segment.php");
     require_once("utility/url.php");
     require_once("utility/params.php");
     require_once("utility/reflection.php");
