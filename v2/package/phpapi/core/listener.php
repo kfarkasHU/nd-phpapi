@@ -19,13 +19,10 @@ namespace PhpAPI2 {
             $requestMethod = $_SERVER["REQUEST_METHOD"];
 
             $paths = PathCache::GetAllFilteredByRequestType($requestMethod);
+            if(is_array($paths) && count($paths) === 0) throw new \Error("The request method was not found!");
 
-            // TODO (sohamar): Fix exception namespace.
-            if(is_array($paths) && count($paths) === 0) throw new Exception("The request method was not found!");
             $requestedPathRef = UrlHelper::GetRequestedPath($requestUrl, $paths);
-
-            // TODO (sohamar): Fix exception namespace.
-            if(is_null($requestedPathRef)) throw new Exception("The requested path was not found!");
+            if(is_null($requestedPathRef)) throw new \Error("The requested path was not found!");
 
             $requestUriParams = Params::GetUriParams($_SERVER);
             $requestBodyParams = Params::GetBodyParams($_SERVER);
