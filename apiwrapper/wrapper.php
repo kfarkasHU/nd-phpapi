@@ -7,6 +7,11 @@ require_once("core/handler.php");
 
 class Wrapper {
     private static $Routes = array();
+    private static $Controllers = array();
+
+    public static function RegisterController($contollerName, $factory) {
+        self::$Controllers[$controllerName] = $factory;
+    }
 
     public static function RegisterRoute($requestType, $url, $controllerName, $methodName) {
         $route = new Route($requestType, $url, $controllerName, $methodName);

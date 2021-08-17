@@ -1,7 +1,7 @@
 <?php
 
 require_once("./apiwrapper/wrapper.php");
-require_once("./apiwrapper/module.php");
+// require_once("./apiwrapper/module.php");
 
 RegisterRoutes();
 Wrapper::Listen();
