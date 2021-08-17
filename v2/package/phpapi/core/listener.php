@@ -24,7 +24,7 @@ namespace PhpAPI2 {
             $requestedPathRef = UrlHelper::GetRequestedPath($requestUrl, $paths);
             if(is_null($requestedPathRef)) throw new \Error("The requested path was not found!");
 
-            $requestUriParams = Params::GetUriParams($_SERVER);
+            $requestUriParams = Params::GetUriParams($_SERVER, $requestedPathRef->RelativeUri);
             $requestBodyParams = Params::GetBodyParams($_SERVER);
             $requestQueryParams = Params::GetQueryParams($_SERVER);
 

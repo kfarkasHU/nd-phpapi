@@ -1,7 +1,7 @@
 <?php
 class TestController {
-    public function testGetFn($b, $a = "SÖR") {
-        echo "testGetFn $b $a";
+    public function testGetFn($a, $b) {
+        echo "testGetFn $a $b";
     }
     public function testGetFnWithArg($paramArg) {
 

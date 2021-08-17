@@ -6,7 +6,6 @@ require_once("./app/test-controller.php");
 // TODO (sohamar): Proper namespace usage.
 // TODO (sohamar): Optional parameters.
 // TODO (sohamar): Request types as enum || different registration methods.
-// TODO (sohamar): Multiple parameters, like /controller/action/:id/:mode/:sub-id/:sub-mode etc
 // TODO (sohamar): Query params, like /controller/action/:id?:mode={mode}&:sub-id={sub-id}&@:sub-mode={sub-mode}
 // TODO (sohamar): Add method-referencing support here.
 // TODO (sohamar): Write documentation.
