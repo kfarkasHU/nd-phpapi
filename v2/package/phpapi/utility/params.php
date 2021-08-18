@@ -23,7 +23,7 @@ namespace PhpAPI2 {
                 array_push(
                     $result,
                     new Param(
-                        Segments::RemoveParameterMark($matchTree[$i]),
+                        Segments::NormalizeParameter($matchTree[$i]),
                         $uriTree[$i]
                     )
                 );

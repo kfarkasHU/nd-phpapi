@@ -1,6 +1,5 @@
 <?php
 namespace PhpAPI2 {
-    // TODO (sohamar): Rename this to ```Url```.
     class Url {
         public static function GetRequestedPath($request, $paths) {
             foreach($paths as $path) {
@@ -12,9 +11,17 @@ namespace PhpAPI2 {
         }
 
         private static function IsPathMatch($request, $path) {
-            echo "$request<br/>";
-            echo "$path<br/>";
+            $pathSegments = Segments::ToNodes($path);
+            $requestSegments = Segments::Tonodes($request);
+            if(count($pathSegments) !== count($requestSegments)) return false;
+            for($i = 0; $i < count($pathSegments); $i++) {
+                if(!Segments::IsParameter($pathSegments[$i]) && !self::IsSegmentsMatch($pathSegments[$i], $requestSegments[$i])) return false;
+            }
             return true;
+        }
+
+        private static function IsSegmentsMatch($left, $right) {
+            return $left === $right;
         }
     }
 }

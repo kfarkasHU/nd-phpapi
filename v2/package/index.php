@@ -19,7 +19,7 @@ $testControllerFactory = function() {
 };
 
 PhpAPI2\PhpAPI2Wrapper::RegisterPath("GET", "/test/get", $testControllerFactory, "testGetFn");
-PhpAPI2\PhpAPI2Wrapper::RegisterPath("GET", "/test/get-with-param/:id", $testControllerFactory, "testGetFn");
+PhpAPI2\PhpAPI2Wrapper::RegisterPath("GET", "/test/get-with-param/:paramArg", $testControllerFactory, "testGetFnWithArg");
 
 PhpAPI2\PhpAPI2Wrapper::RegisterPath("DELETE", "/test/delete", $testControllerFactory, "testDeleteFn");
 PhpAPI2\PhpAPI2Wrapper::RegisterPath("DELETE", "/test/delete-with-param/:id", $testControllerFactory, "testDeleteFnWithArg");

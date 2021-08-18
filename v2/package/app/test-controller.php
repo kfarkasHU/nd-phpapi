@@ -1,10 +1,10 @@
 <?php
 class TestController {
-    public function testGetFn($a, $b) {
-        echo "testGetFn $a $b";
+    public function testGetFn() {
+        echo "testGetFn";
     }
     public function testGetFnWithArg($paramArg) {
-
+        echo "testGetFnWithArg() > paramArg = $paramArg";
     }
     public function testDeleteFn() {
 
