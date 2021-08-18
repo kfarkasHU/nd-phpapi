@@ -32,7 +32,7 @@ namespace PhpAPI2 {
             return $result;
         }
         public static function GetBodyParams($request) {
-            return array(new Param("c", "BÉKA"));
+            return array();
         }
         public static function GetQueryParams($request) {
             return array();
