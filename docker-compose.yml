@@ -5,4 +5,4 @@ services:
     ports: 
       - '8000:80'
     volumes:
-      - ./package:/var/www/html/
+      - ./src:/var/www/html/
