@@ -18,17 +18,25 @@ namespace PhpAPI2 {
             $requestUrl = $_SERVER["REQUEST_URI"];
             $requestMethod = $_SERVER["REQUEST_METHOD"];
 
+            $chopped = self::ChopQueryParams($requestUrl);
+
             $paths = PathCache::GetAllFilteredByRequestType($requestMethod);
             if(is_array($paths) && count($paths) === 0) throw new \Error("The request method was not found!");
 
-            $requestedPathRef = Url::GetRequestedPath($requestUrl, $paths);
+            $requestedPathRef = Url::GetRequestedPath($chopped[0], $paths);
             if(is_null($requestedPathRef)) throw new \Error("The requested path was not found!");
 
-            $requestUriParams = Params::GetUriParams($_SERVER, $requestedPathRef->RelativeUri);
+            $requestUriParams = Params::GetUriParams($chopped[0], $requestedPathRef->RelativeUri);
             $requestBodyParams = Params::GetBodyParams($_SERVER);
-            $requestQueryParams = Params::GetQueryParams($_SERVER);
+            $requestQueryParams = Params::GetQueryParams($chopped[1]);
 
             return new CallableReference($requestedPathRef, $requestUriParams, $requestBodyParams, $requestQueryParams);
+        }
+
+        private static function ChopQueryParams($uri) {
+            $chopped = explode("?", $uri);
+            count($chopped) === 1 && array_push($chopped, "");
+            return $chopped;
         }
     }
 }

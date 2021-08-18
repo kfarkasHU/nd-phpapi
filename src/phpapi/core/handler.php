@@ -25,9 +25,8 @@ namespace PhpAPI2 {
             $fnParams = Reflection::GetFnParams($controller, $methodRef);
             $allParams = array_merge($uriParams, $bodyParams, $queryParams);
 
-            $isAdded = false;
-            if(count($fnParams) !== count($allParams)) return $result;
             foreach($fnParams as $fnParam) {
+                $isAdded = false;
                 foreach($allParams as $allParam) {
                     if($allParam->Name === $fnParam) {
                         array_push($result, $allParam->Value);

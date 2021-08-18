@@ -11,11 +11,10 @@ namespace PhpAPI2 {
     }
 
     class Params {
-        public static function GetUriParams($request, $match) {           
+        public static function GetUriParams($requestUri, $match) {           
             $result = array();
-            $uri = $request["REQUEST_URI"];
 
-            $uriTree = Segments::ToNodes($uri);
+            $uriTree = Segments::ToNodes($requestUri);
             $matchTree = Segments::ToNodes($match);
 
             for($i = 0; $i < count($matchTree); $i++) {
@@ -34,8 +33,20 @@ namespace PhpAPI2 {
         public static function GetBodyParams($request) {
             return array();
         }
-        public static function GetQueryParams($request) {
-            return array();
+        public static function GetQueryParams($queryString) {
+            $result = array();
+            $queries = explode("&", $queryString);
+            foreach($queries as $query) {
+                $queryKvp = explode("=", $query);
+                array_push(
+                    $result,
+                    new Param(
+                        $queryKvp[0],
+                        $queryKvp[1]
+                    )
+                );
+            }
+            return $result;
         }
     }
 }

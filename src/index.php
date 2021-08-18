@@ -3,8 +3,6 @@
 require_once("./phpapi/api.php");
 require_once("./app/test-controller.php");
 
-// TODO (sohamar): Query params, like /controller/action/:id?:mode={mode}&:sub-id={sub-id}&@:sub-mode={sub-mode}
-// TODO (sohamar): Add method-referencing support here.
 // TODO (sohamar): Write documentation.
 // TODO (sohamar): Write examples.
 // TODO (sohamar): Add tests /Node
