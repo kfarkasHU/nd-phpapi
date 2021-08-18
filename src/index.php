@@ -7,9 +7,21 @@ require_once("./app/test-controller.php");
 // TODO (sohamar): Add method-referencing support here.
 // TODO (sohamar): Write documentation.
 // TODO (sohamar): Write examples.
-// TODO (sohamar): Add tests /Postman
 // TODO (sohamar): Add tests /Node
-// TODO (sohamar): Add tests /Index.html
+// TODO (sohamar): Add injector
+// TODO (sohamar): Injector -> Transient support
+// TODO (sohamar): Injector -> Scoped support
+// TODO (sohamar): Injector -> Singleton support
+// TODO (sohamar): BaseController
+// TODO (sohamar): BaseController -> Json
+// TODO (sohamar): BaseController -> Ok(200)
+// TODO (sohamar): BaseController -> NotFound(404)
+// TODO (sohamar): BaseController -> InternalServerError(500)
+// TODO (sohamar): BaseController -> StatusCode(code, data);
+// TODO (sohamar): SQL support
+// TODO (sohamar): SQL in docker
+// TODO (sohamar): Sample app instead of demo with KnockoutJS (it should be a sample TODO app, without login)
+// TODO (sohamar): ActionFilters (Wrapper::RegisterPath)
 
 use PhpApi2\PhpAPI2Wrapper as Wrapper;
 
