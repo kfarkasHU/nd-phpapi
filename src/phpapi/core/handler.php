@@ -26,6 +26,7 @@ namespace PhpAPI2 {
             $allParams = array_merge($uriParams, $bodyParams, $queryParams);
 
             $isAdded = false;
+            if(count($fnParams) !== count($allParams)) return $result;
             foreach($fnParams as $fnParam) {
                 foreach($allParams as $allParam) {
                     if($allParam->Name === $fnParam) {
