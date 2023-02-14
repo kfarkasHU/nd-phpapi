@@ -12,7 +12,7 @@ namespace PhpAPI2 {
 
         private static function IsPathMatch($request, $path) {
             $pathSegments = Segments::ToNodes($path);
-            $requestSegments = Segments::Tonodes($request);
+            $requestSegments = Segments::ToNodes($request);
             if(count($pathSegments) !== count($requestSegments)) return false;
             for($i = 0; $i < count($pathSegments); $i++) {
                 if(!Segments::IsParameter($pathSegments[$i]) && !self::IsSegmentsMatch($pathSegments[$i], $requestSegments[$i])) return false;
