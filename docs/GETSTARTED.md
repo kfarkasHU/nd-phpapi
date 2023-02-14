@@ -9,4 +9,4 @@ then open `localhost:8000` from your browser
 
 Testing URLs (GET):
 * `http://localhost:8000/test/get`
-* `http://localhost:8000/test/get-with-param/UtallakRajaManiTeKisFasz`
+* `http://localhost:8000/test/get-with-param/hello-world`
