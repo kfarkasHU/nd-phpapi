@@ -7,6 +7,7 @@ namespace PhpAPI2 {
     require_once("utility/reflection.php");
     require_once("utility/path-cache.php");
     require_once("core/cors.php");
+    require_once("core/json.php");
     require_once("core/listener.php");
     require_once("core/handler.php");
 
@@ -66,9 +67,16 @@ namespace PhpAPI2 {
             self::RegisterPathInternal(DELETE_HTTP_KEY, $relativeUri, $controllerFactory, $method);
         }
 
-        public static function Listen($enableCors = false) {
+        public static function Listen(
+            $enableCors = false,
+            $enableJson = false
+        ) {
             if($enableCors) {
                 Cors::Enable();
+            }
+
+            if($enableJson) {
+                Json::Enable();
             }
             $ref = Listener::Listen();
             $response = Handler::Handle($ref);
